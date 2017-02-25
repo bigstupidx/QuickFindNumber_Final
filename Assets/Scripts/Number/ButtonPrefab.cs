@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class ButtonPrefab : MonoBehaviour
 {
-
     public Image number;
     public Text txtNumber;
     public int id;

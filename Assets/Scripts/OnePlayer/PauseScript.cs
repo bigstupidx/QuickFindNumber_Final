@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PauseScript : MonoBehaviour
@@ -16,7 +17,7 @@ public class PauseScript : MonoBehaviour
 
     public void BtnYesClick()
     {
-        Application.LoadLevel("Menu");
+        SceneManager.LoadScene("Menu");
     }
 
     public void BtnNoClick_OnePlayer()

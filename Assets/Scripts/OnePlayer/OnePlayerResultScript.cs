@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class OnePlayerResultScript : MonoBehaviour
@@ -13,12 +14,7 @@ public class OnePlayerResultScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Instance = this;
-
-        if (PlayerPrefs.GetInt("saveAdCount", 0) % 3 == 0)
-        {
-            UM_AdManager.instance.StartInterstitialAd();
-        }            
+        Instance = this;      
     }
 
     public void SetInfo(int score, int bestScore, int gold)
@@ -30,17 +26,12 @@ public class OnePlayerResultScript : MonoBehaviour
 
     public void BtnBackClick()
     {
-        Application.LoadLevel("Menu");
+        SceneManager.LoadScene("Menu");
     }
 
     public void ReplayClick()
     {
-        Application.LoadLevel("OnePlayer");
-    }
-
-    public void RateClick()
-    {
-        UIManagerScript.Instance.RateClick();
-    }
+        SceneManager.LoadScene("OnePlayer");
+    }   
     
 }

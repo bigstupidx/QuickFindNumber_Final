@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PanelChoiceScript : MonoBehaviour
@@ -182,7 +183,7 @@ public class PanelChoiceScript : MonoBehaviour
     // Back
     public void BtnBackClick()
     {
-        Application.LoadLevel("Menu");
+        SceneManager.LoadScene("Menu");
     }
     
 }

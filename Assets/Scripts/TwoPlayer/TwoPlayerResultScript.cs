@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TwoPlayerResultScript : MonoBehaviour
@@ -12,8 +13,6 @@ public class TwoPlayerResultScript : MonoBehaviour
     void Start()
     {
         Instance = this;
-
-        UM_AdManager.instance.StartInterstitialAd();
     }
 
     public void SetScoreLine(int scorePlayer1, int scorePlayer2)
@@ -24,11 +23,11 @@ public class TwoPlayerResultScript : MonoBehaviour
 
     public void BtnBackClick()
     {
-        Application.LoadLevel("Menu");
+        SceneManager.LoadScene("Menu");
     }
 
     public void BtnReplayClick()
     {
-        Application.LoadLevel("TwoPlayer");
+        SceneManager.LoadScene("TwoPlayer");
     }    
 }

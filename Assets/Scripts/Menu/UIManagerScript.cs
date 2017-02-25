@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManagerScript : MonoBehaviour
 {
@@ -13,45 +14,17 @@ public class UIManagerScript : MonoBehaviour
     public GameObject BtnSoundOFF;
     public GameObject BtnMusicON;
     public GameObject BtnMusicOFF;
-
-    int saveAdvertiseCount;
-
-    public MobileNativeRateUs ratePopUp;
-    public int bannerId1;
-    
+        
     void Start()
     {
-        UM_AdManager.instance.Init();
-
         isSoundON = true;
         isMusicON = true;
-
-        // Rate for app
-        ratePopUp = new MobileNativeRateUs("Like this game?", "Please rate to support future updates!");
-        ratePopUp.SetAndroidAppUrl("https://play.google.com/store/apps/details?id=com.OhGame.FindNumber");
-
-        saveAdvertiseCount = PlayerPrefs.GetInt("saveAdCount", 0);
-        saveAdvertiseCount++;
-        if (saveAdvertiseCount > 4)
-        {
-            ratePopUp.Start();
-            UM_AdManager.instance.StartInterstitialAd(); 
-            saveAdvertiseCount = 0;
-        }
-
-        PlayerPrefs.SetInt("saveAdCount", saveAdvertiseCount);
-        PlayerPrefs.Save();
-
+        
         DontDestroyOnLoad(this);
         Instance = this;
 
     }
     
-    public void RateClick()
-    {
-        ratePopUp.Start();
-    }
-
     public void SettingClick()
     {
         PanelSetting.SetActive(true);
@@ -82,7 +55,7 @@ public class UIManagerScript : MonoBehaviour
     // Switch Music ON or OFF
     public void MusicToggle()
     {
-        if (isMusicON == true)
+        if (isMusicON == true) 
         {
             isMusicON = false;
             BtnMusicON.SetActive(false);
@@ -98,17 +71,17 @@ public class UIManagerScript : MonoBehaviour
 
     public void OnePlayer()
     {
-        Application.LoadLevel("OnePlayer");
+        SceneManager.LoadScene("OnePlayer");
     }
 
     public void TwoPlayer()
     {
-        Application.LoadLevel("TwoPlayer");
+        SceneManager.LoadScene("TwoPlayer");
     }
 
     public void Menu()
     {
-        Application.LoadLevel("Menu");
+        SceneManager.LoadScene("Menu");
     }
 
     // Exit game
